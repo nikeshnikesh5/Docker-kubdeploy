@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-node-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: simple-node
+  template:
+    metadata:
+      labels:
+        app: simple-node
+    spec:
+      containers:
+      - name: simple-node
+        image: techhunt/simple-node:latest
+        ports:
+        - containerPort: 3000
